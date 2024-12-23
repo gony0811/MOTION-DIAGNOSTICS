@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPLE.UI", "EPLE.UI\EPLE.UI.csproj", "{C42A7668-E4A1-4C78-984D-D97DE0D17698}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPLE", "EPLE\EPLE.csproj", "{589D6742-338D-4C88-BBA1-AEA29210DF56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPLE.Core", "EPLE.Core\EPLE.Core.csproj", "{B9E7FB2A-DF65-4FD8-B05C-C0BAC5F06B2F}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C42A7668-E4A1-4C78-984D-D97DE0D17698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C42A7668-E4A1-4C78-984D-D97DE0D17698}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C42A7668-E4A1-4C78-984D-D97DE0D17698}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C42A7668-E4A1-4C78-984D-D97DE0D17698}.Release|Any CPU.Build.0 = Release|Any CPU
 		{589D6742-338D-4C88-BBA1-AEA29210DF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{589D6742-338D-4C88-BBA1-AEA29210DF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{589D6742-338D-4C88-BBA1-AEA29210DF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
