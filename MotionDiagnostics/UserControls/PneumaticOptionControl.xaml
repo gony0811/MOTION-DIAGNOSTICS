@@ -1,0 +1,50 @@
+<UserControl x:Class="MotionDiagnostics.UserControls.PneumaticOptionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MotionDiagnostics.UserControls"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="ControlMargin">5 5 0 0</Thickness>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" Content="&#xACF5;&#xC555; &#xC0AC;&#xC6A9; &#xC635;&#xC158;" Margin="10" FontWeight="Bold"></Label>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <CheckBox Name="CheckBox_UsePneumeticOption"
+                          Content="&#xCE21;&#xC815; &#xC911; &#xACF5;&#xC555;&#xC0AC;&#xC6A9;"
+                          ToolTip="&#xCE21;&#xC815; &#xC911;&#xC5D0; &#xACF5;&#xC555;&#xC744; &#xC0AC;&#xC6A9;&#xD560;&#xC9C0; &#xC5EC;&#xBD80;&#xB97C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;."
+                          IsChecked="False"
+                          Checked="CheckBox_Checked"
+                          IsEnabled="True" />
+            <CheckBox Content="X Guide SOL"
+                          IsChecked="False"
+                          Checked="CheckBox_Checked"
+                          IsEnabled="True" />
+            <CheckBox Content="X Support SOL"
+                          IsChecked="False"
+                          Checked="CheckBox_Checked"
+                          IsEnabled="True" />
+            <CheckBox Content="Y1 Guide SOL"
+                          IsChecked="False"
+                          Checked="CheckBox_Checked"
+                          IsEnabled="True" />
+            <CheckBox Content="Y1 Support SOL"
+                          Checked="CheckBox_Checked"
+                          IsChecked="False"
+                          IsEnabled="True" />
+            <CheckBox Content="Y2 Support SOL"
+                          IsChecked="False"
+                          Checked="CheckBox_Checked"
+                          IsEnabled="True" />
+        </StackPanel>
+    </Grid>
+</UserControl>

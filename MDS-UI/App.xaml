@@ -1,0 +1,99 @@
+<Application x:Class="MDS.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MDS.UI"
+             xmlns:cv="clr-namespace:MDS.UI.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Telerik Implicit Styles are built into Telerik.UI.for.Wpf.80.Xaml package -->
+            <!-- To use Fluent theme, add Telerik.Windows.Themes.Fluent NuGet package and uncomment below -->
+            <!--
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/System.Windows.xaml"/>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/Telerik.Windows.Controls.xaml"/>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/Telerik.Windows.Controls.Input.xaml"/>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/Telerik.Windows.Controls.Navigation.xaml"/>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/Telerik.Windows.Controls.GridView.xaml"/>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/Telerik.Windows.Controls.Data.xaml"/>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/Telerik.Windows.Controls.DataVisualization.xaml"/>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/Telerik.Windows.Controls.Docking.xaml"/>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Fluent;component/Themes/Telerik.Windows.Controls.Chart.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            -->
+
+            <!-- Dark Theme Colors -->
+            <SolidColorBrush x:Key="MainBackground" Color="#151B24"/>
+            <SolidColorBrush x:Key="SecondaryBackground" Color="#1A2230"/>
+            <SolidColorBrush x:Key="CardBackground" Color="#1E2633"/>
+            <SolidColorBrush x:Key="BorderColor" Color="#2D3E52"/>
+            <SolidColorBrush x:Key="TextPrimary" Color="White"/>
+            <SolidColorBrush x:Key="TextSecondary" Color="#9FB3C8"/>
+            <SolidColorBrush x:Key="AccentGreen" Color="#2ECC71"/>
+            <SolidColorBrush x:Key="AccentRed" Color="#E74C3C"/>
+            <SolidColorBrush x:Key="AccentBlue" Color="#3498DB"/>
+
+            <!-- PanelCard Style -->
+            <Style x:Key="PanelCard" TargetType="Border">
+                <Setter Property="Background" Value="#1E2633"/>
+                <Setter Property="BorderBrush" Value="#2D3E52"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="6"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Margin" Value="6"/>
+            </Style>
+
+            <!-- Description Header Style -->
+            <Style x:Key="DescriptionHeaderStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+
+        
+            <!-- Global TextBlock Style -->
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+
+            <!-- Global Label Style -->
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+
+            <!-- GroupBox Style for dark theme -->
+            <Style TargetType="GroupBox">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="#2D3E52"/>
+            </Style>
+
+            <!-- ToolTip Style -->
+            <Style TargetType="ToolTip">
+                <Setter Property="Background" Value="#1E2633"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="#2D3E52"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ToolTip">
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="4">
+                                <ContentPresenter Margin="{TemplateBinding Padding}" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- UserControl base style (replacing PageStyle) -->
+            <Style x:Key="PageStyle" TargetType="{x:Type UserControl}">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

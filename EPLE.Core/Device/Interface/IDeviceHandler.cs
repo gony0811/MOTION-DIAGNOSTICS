@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Serilog;
 
 namespace EPLE.Core.Device.Interface
 {
     public enum DevMode
     {
         UNKNOWN,
+        DETTACHED,
         CONNECT,
         DISCONNECT,
         SIMULATE,

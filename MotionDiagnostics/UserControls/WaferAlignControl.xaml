@@ -1,0 +1,213 @@
+<UserControl x:Class="MotionDiagnostics.UserControls.WaferAlignControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MotionDiagnostics.UserControls"
+             xmlns:conv="clr-namespace:MotionDiagnostics.Converters"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Unloaded">
+            <i:InvokeCommandAction Command="{Binding UnloadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="ControlMargin">5 5 0 0</Thickness>
+            <conv:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Name="HorizontalSettingGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.ColumnSpan="5" Grid.Row="0" HorizontalAlignment="Center" FontSize="10" FontWeight="Bold" Content="&#xC218;&#xD3C9; &#xAE30;&#xC900; &#xC138;&#xD305;" Margin="{StaticResource ControlMargin}"></Label>
+
+        <Label Content="LEFT EDGE" Grid.Column="1" Grid.Row="1" Margin="{StaticResource ControlMargin}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+        <Label Content="CENTER" Grid.Column="2" Grid.Row="1" Margin="{StaticResource ControlMargin}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+        <Label Content="RIGHT EDGE" Grid.Column="3" Grid.Row="1" Margin="{StaticResource ControlMargin}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+
+
+
+        <Button Content="Move" Grid.Column="1" Grid.Row="2" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveLeftEdgeButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="Move" Grid.Column="2" Grid.Row="2" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveCenterButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="Move" Grid.Column="3" Grid.Row="2" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveRightEdgeButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+
+        <StackPanel Orientation="Vertical" Grid.Column="4" Grid.Row="1" Grid.RowSpan="6" Margin="15 5 5 5">
+            <Label Content="THETA" Grid.Column="4" Grid.Row="1" Margin="{StaticResource ControlMargin}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+
+            <Button Content="&#xAC01;&#xB3C4; &#xBCC0;&#xACBD;" Grid.Column="4" Grid.Row="4" MinWidth="100" Margin="{StaticResource ControlMargin}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName = "Click" >
+                        <i:InvokeCommandAction Command = "{Binding RotationThetaAngleButtonClickCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+
+            <telerik:RadNumericUpDown Margin="{StaticResource ControlMargin}"
+                     AutomationProperties.AutomationId="AutomationIdTested"
+                     Value="{Binding RotationAngle}"
+                     Grid.Column="4"
+                     Grid.Row="2"
+                     MinWidth="100"
+                     SmallChange="0.001"
+                     ShowButtons="False"
+                     ValueFormat="Numeric" NumberDecimalDigits="3">
+            </telerik:RadNumericUpDown>
+
+            <Button Content="&#xAC01;&#xB3C4;&#xBCF4;&#xC815;&#xAC12; &#xACC4;&#xC0B0;" Grid.Column="4" Grid.Row="5" MinWidth="100" Margin="{StaticResource ControlMargin}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding CalcAngleOffsetButtonClickCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+
+            <telerik:RadNumericUpDown Margin="{StaticResource ControlMargin}"
+                     Value="{Binding ThetaAlignAngle}"
+                     Grid.Column="4"
+                     Grid.Row="3"
+                     IsReadOnly="True"
+                     Background="#3498DB"
+                     HorizontalContentAlignment="Center"
+                     SmallChange="0.001"
+                     ShowButtons="False"
+                     ValueFormat="Numeric" NumberDecimalDigits="3">
+            </telerik:RadNumericUpDown>
+
+
+            <Button Content="&#xAC01;&#xB3C4; &#xBCF4;&#xC815;" Grid.Column="4" Grid.Row="6" MinWidth="100" Margin="{StaticResource ControlMargin}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding ApplyAngleOffsetButtonClickCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </StackPanel>
+
+
+        <Button Content="Find" Grid.Column="1" Grid.Row="3" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding FindLeftEdgeButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="Find" Grid.Column="2" Grid.Row="3" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding FindCenterButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="Find" Grid.Column="3" Grid.Row="3" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding FindRightEdgeButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+
+        <Button Content="&#xC911;&#xC559; &#xC774;&#xB3D9;" Grid.Column="1" Grid.Row="4" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveLeftEdgeMarkButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="&#xC911;&#xC559; &#xC774;&#xB3D9;" Grid.Column="2" Grid.Row="4" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveCenterMarkButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="&#xC911;&#xC559; &#xC774;&#xB3D9;" Grid.Column="3" Grid.Row="4" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveRightEdgeMarkButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+
+        <Button Content="SET" Grid.Column="1" Grid.Row="5" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding SetLeftEdgeMarkButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <Button Content="SET" Grid.Column="2" Grid.Row="5" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding SetCenterMarkButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="SET" Grid.Column="3" Grid.Row="5" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding SetRightEdgeMarkButtonClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+
+
+        <Label Content="X[&#x339E;]" Grid.Column="0" Grid.Row="6" Margin="{StaticResource ControlMargin}" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        <TextBox Text="{Binding MarkLeftEdgeX, StringFormat=F3, Mode=TwoWay}" Background="#3498DB" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Margin="{StaticResource ControlMargin}" IsReadOnly="True" ></TextBox>
+        <TextBox Text="{Binding MarkCenterX, StringFormat=F3, Mode=TwoWay}" Background="#3498DB" TextAlignment="Center" Grid.Column="2" Grid.Row="6" Margin="{StaticResource ControlMargin}" IsReadOnly="True"></TextBox>
+        <TextBox Text="{Binding MarkRightEdgeX, StringFormat=F3, Mode=TwoWay}" Background="#3498DB" TextAlignment="Center" Grid.Column="3" Grid.Row="6" Margin="{StaticResource ControlMargin}" IsReadOnly="True" ></TextBox>
+
+        <Label Content="Y[&#x339E;]" Grid.Column="0" Grid.Row="7" Margin="{StaticResource ControlMargin}" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        <TextBox Text="{Binding MarkLeftEdgeY, StringFormat=F3, Mode=TwoWay}" Background="#3498DB" TextAlignment="Center" Grid.Column="1" Grid.Row="7" Margin="{StaticResource ControlMargin}" IsReadOnly="True" ></TextBox>
+        <TextBox Text="{Binding MarkCenterY, StringFormat=F3, Mode=TwoWay}" Background="#3498DB" TextAlignment="Center" Grid.Column="2" Grid.Row="7" Margin="{StaticResource ControlMargin}" IsReadOnly="True"></TextBox>
+        <TextBox Text="{Binding MarkRightEdgeY, StringFormat=F3, Mode=TwoWay}" Background="#3498DB" TextAlignment="Center" Grid.Column="3" Grid.Row="7" Margin="{StaticResource ControlMargin}" IsReadOnly="True"></TextBox>
+
+
+    </Grid>
+</UserControl>

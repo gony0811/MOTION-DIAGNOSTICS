@@ -1,0 +1,86 @@
+<UserControl x:Class="MotionDiagnostics.UserControls.RepeatMeasureControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vaild="clr-namespace:MotionDiagnostics.UserControls.Validations"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <vaild:RepeatCountDataErrorInfo x:Key="repeatCount"/>
+            <Thickness x:Key="ControlMargin">5 5 0 0</Thickness>
+            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Margin" Value="0,4,0,0"> </Setter>
+            </Style>
+
+            <DataTemplate x:Key="DetailTemplate">
+                <Border BorderThickness="0.3" BorderBrush="AliceBlue" Margin="{StaticResource ControlMargin}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="COL : " HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=XPos}" HorizontalAlignment="Left"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="COL : " HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=YPos}" HorizontalAlignment="Left"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Error X (&#xD3C9;&#xADE0;) : " HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=ErrorX, StringFormat=F3}" HorizontalAlignment="Left"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Error Y (&#xD3C9;&#xADE0;) : " HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=ErrorY, StringFormat=F3}" HorizontalAlignment="Left"/>
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Result : " HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Path=MeasureResult}" HorizontalAlignment="Left"/>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBox Margin="{StaticResource ControlMargin}" Text="COL" IsHitTestVisible="False" IsReadOnly="True" Grid.Column="0" Grid.Row="0" TextAlignment="Center"></TextBox>
+            <TextBox Margin="{StaticResource ControlMargin}" Text="{Binding SelectedColumn, Mode=TwoWay, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" MinWidth="100" TextAlignment="Center"></TextBox>
+
+            <TextBox Margin="{StaticResource ControlMargin}" Text="ROW" IsHitTestVisible="False" IsReadOnly="True" Grid.Column="0" Grid.Row="1" TextAlignment="Center"></TextBox>
+            <TextBox Margin="{StaticResource ControlMargin}" Text="{Binding SelectedRow, Mode=TwoWay, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" MinWidth="100" TextAlignment="Center"></TextBox>
+
+            <TextBox Margin="{StaticResource ControlMargin}" Text="REPEAT" IsHitTestVisible="False" IsReadOnly="True" Grid.Column="0" Grid.Row="2" TextAlignment="Center"></TextBox>
+            <TextBox Margin="{StaticResource ControlMargin}" Text="{Binding RepeatCount, Mode=TwoWay, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" MinWidth="50" Background="White" TextAlignment="Center">
+            </TextBox>
+
+            <Button Margin="{StaticResource ControlMargin}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="1" Content="REPEAT" Command="{Binding RepeatMeasureCommand}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></Button>
+
+            <ContentControl Content="{Binding MeasureResult}" ContentTemplate="{StaticResource DetailTemplate}"  BorderBrush="Black" BorderThickness="1" Grid.RowSpan="3" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"/>
+
+            <Button Margin="{StaticResource ControlMargin}" Grid.Column="3" Grid.Row="4" Content="DELETE" MinWidth="80" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></Button>
+            <Button Margin="{StaticResource ControlMargin}" Grid.Column="4" Grid.Row="4" Content="SAVE" MinWidth="80" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></Button>
+        </Grid>
+    </Grid>
+</UserControl>

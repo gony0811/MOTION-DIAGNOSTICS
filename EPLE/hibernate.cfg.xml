@@ -1,0 +1,18 @@
+﻿<?xml version = "1.0" encoding = "utf-8" ?>
+<hibernate-configuration xmlns = "urn:nhibernate-configuration-2.2">
+  <session-factory>
+
+    <property name = "connection.driver_class"> NHibernate.Driver.SqlClientDriver </property>
+    <property name="connection.connection_string">
+		<!--Server=DESKTOP-NU3Q5T0;Database=config;User Id=sa;Password=P@$$w0rd;Trusted_Connection=True;-->
+		Server=DESKTOP-VPD7FAP\SQLEXPRESS;Database=config;User Id=sa;Password=P@$$w0rd;Trusted_Connection=True;
+	</property>
+    <property name="dialect">NHibernate.Dialect.MsSql2012Dialect</property>
+    <!-- 테이블 자동 생성 -->
+    <property name="hbm2ddl.auto">update</property>
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+    <mapping assembly = "EPLE"/>
+  </session-factory>
+
+</hibernate-configuration>

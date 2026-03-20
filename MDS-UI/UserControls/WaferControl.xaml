@@ -1,0 +1,46 @@
+<UserControl x:Class="MDS.UI.UserControls.WaferControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             Loaded="UserControl_Loaded"
+             mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Unloaded">
+            <i:InvokeCommandAction Command="{Binding UnloadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="ControlMargin">5 5 0 0</Thickness>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Viewbox를 Grid의 크기에 딱 맞게 배치 -->
+
+        <Canvas x:Name="AxesCanvas" Background="Transparent"/>
+        <Viewbox x:Name="WaferViewbox" Grid.Row="1" Stretch="None" Margin="{StaticResource ControlMargin}" PreviewMouseRightButtonDown="WaferViewbox_PreviewMouseRightButtonDown" PreviewMouseMove="WaferViewbox_PreviewMouseMove"  PreviewMouseRightButtonUp="WaferViewbox_PreviewMouseRightButtonUp" MouseEnter="WaferViewbox_MouseEnter" MouseLeave="WaferViewbox_MouseLeave">
+            <ScrollViewer Name="CanvasScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Padding="0" CacheMode="BitmapCache" Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <Canvas Name="WaferCanvas" MouseWheel="Canvas_MouseWheel" MinWidth="800" MinHeight="800" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="CanvasScaleTransform" ScaleX="1" ScaleY="1"/>
+                            <TranslateTransform x:Name="CanvasTranslateTransform" X="0.5" Y="0"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </ScrollViewer>
+
+        </Viewbox>
+
+    </Grid>
+</UserControl>

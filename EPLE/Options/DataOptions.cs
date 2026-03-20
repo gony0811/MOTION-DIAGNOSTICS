@@ -8,8 +8,7 @@ namespace EPLE.Options
 {
     internal class DataOptions
     {
-        internal const string Data = "Data";
-
+        public const string Data = "Data";
         public string Db { get; set; } = string.Empty;
         public bool EnableSensitiveDataLogging { get; set; } = false;
     }

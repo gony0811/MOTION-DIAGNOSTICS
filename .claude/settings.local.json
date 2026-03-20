@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd C:/source/MOTION-DIAGNOSTICS/lib/RCWPF/2026.1.211.462/Telerik.Windows.Controls.dll)",
+      "Bash(timeout 10 dotnet run --project MDS-UI/MDS-UI.csproj)"
+    ]
+  }
+}

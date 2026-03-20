@@ -1,13 +1,24 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+﻿using EPLE.Core.Service.Interface;
+using System.Threading;
+using System.Threading.Tasks;
+using Serilog;
 
 namespace EPLE.Core.Service
 {
-    public abstract class AbstractService : IHostedService
+    public enum Result
     {
-        protected readonly ILogger<AbstractService> logger;
+        PROCESSING,
+        SUCCESS,
+        FAILED,
+        CANCELED,
+        TIMEOUT
+    }
 
-        public AbstractService(ILogger<AbstractService> logger)
+    public abstract class AbstractService : IMainService
+    {
+        protected readonly ILogger logger;
+
+        public AbstractService(ILogger logger)
         {
             this.logger = logger;
         }

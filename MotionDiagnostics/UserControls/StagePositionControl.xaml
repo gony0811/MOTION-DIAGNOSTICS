@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="MotionDiagnostics.UserControls.StagePositionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Orientation="Horizontal">
+        <Label Margin="4" Width="80" Content="{Binding LabelContent}" />
+        <TextBox Margin="4" Width="100" IsReadOnly="True"
+                 Text="{Binding FeedbackPosition}" />
+        <Button Content="Teach"
+                Command="{Binding TeachCommand}" />
+        <Button Content="Set" Command="{Binding SetCommand}" />
+        <Button Content="Move" Command="{Binding MoveCommand}" />
+    </StackPanel>
+</UserControl>

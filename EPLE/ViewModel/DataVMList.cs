@@ -1,7 +1,10 @@
 ﻿using EPLE.Data;
 using EPLE.Data.Entity;
-using EPLE.Data.Interface;
+using EPLE.Interface;
+using EPLE.Manager;
+using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 namespace EPLE.ViewModel
 {
@@ -20,16 +23,16 @@ namespace EPLE.ViewModel
                 switch (this.Type)
                 {
                     case DataType.INT:
-                        Value = int.Parse(dataConfigEntity.DefaultValue ?? "0");
+                        if (int.TryParse(dataConfigEntity.DefaultValue ?? "0", out int iVal)) Value = iVal; else Value = 0;
                         break;
                     case DataType.DOUBLE:
-                        Value = int.Parse(dataConfigEntity.DefaultValue ?? "0.0");
+                        if (double.TryParse(dataConfigEntity.DefaultValue ?? "0", out double dVal)) Value = dVal; else Value = 0.0;
                         break;
                     case DataType.STRING:
-                        Value = float.Parse(dataConfigEntity.DefaultValue ?? "");
+                        Value = dataConfigEntity.DefaultValue ?? string.Empty;
                         break;
                     case DataType.OBJECT:
-                        Value = dataConfigEntity.DefaultValue ?? "";
+                        Value = dataConfigEntity.DefaultValue ?? new object();
                         break;
                     default:
                         Value = 0;
@@ -39,7 +42,12 @@ namespace EPLE.ViewModel
 
             public string Name { get => dataConfigEntity.Name; set => dataConfigEntity.Name = value; }
             public string Module { get => dataConfigEntity.Module ?? "UNKNOWN"; set => dataConfigEntity.Module = value; }
-            public string Group { get => dataConfigEntity.Group ?? "UNKNOWN"; set => dataConfigEntity.Group = value; }
+
+            /// <summary>
+            /// Group is not used in this project
+            /// Group is reserved for MSSQLSERVER
+            /// </summary>
+            //public string Group { get => dataConfigEntity.Group ?? "UNKNOWN"; set => dataConfigEntity.Group = value; }
             public string Description { get => dataConfigEntity.Description ?? ""; set => dataConfigEntity.Description = value; }
             public DataType Type { get => dataConfigEntity.Type; set => dataConfigEntity.Type = value; }
             public string DeviceName { get => dataConfigEntity.DeviceName; set => dataConfigEntity.DeviceName = value; }
@@ -48,14 +56,14 @@ namespace EPLE.ViewModel
 
             public string Command { get => dataConfigEntity.Command; set => dataConfigEntity.Command = value; }
 
-            public int PollingTime { get => dataConfigEntity.PollingTime; set => dataConfigEntity.PollingTime = value; }
+            public int? PollingTime { get => dataConfigEntity.PollingTime; set => dataConfigEntity.PollingTime = value; }
 
-            public int DataResetTimeout { get => dataConfigEntity.DataResetTimeout; set => dataConfigEntity.DataResetTimeout = value; }
+            public int? DataResetTimeout { get => dataConfigEntity.DataResetTimeout; set => dataConfigEntity.DataResetTimeout = value; }
 
-            public bool Use { get => dataConfigEntity.Use; set => dataConfigEntity.Use = value; }
+            public bool Use { get => dataConfigEntity.IsUse; set => dataConfigEntity.IsUse = value; }
 
             public string DefaultValue { get => dataConfigEntity.DefaultValue ?? ""; set => dataConfigEntity.DefaultValue = value; }
-            public string UpdateTime { get => dataConfigEntity.UpdateTime?? DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ffff"); set => dataConfigEntity.UpdateTime = value; }
+            public string UpdateTime { get => dataConfigEntity.UpdateTime; set => dataConfigEntity.UpdateTime = value; }
             public void SaveChanges() => saveChanges.SaveChanges();
 
             public object Value { get; set; }

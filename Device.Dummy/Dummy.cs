@@ -1,23 +1,24 @@
 ﻿using EPLE.Core.Device.Interface;
-using Microsoft.Extensions.Logging;
+using System;
+using Serilog;
 
 namespace Device
 {
     public class Dummy : IDeviceHandler
     {
-        private ILogger _logger=null!;
+        private ILogger _logger;
         private DevMode _devMode;
 
         public bool DeviceAttach(string arguments)
         {
-            _logger.LogInformation("DeviceAttach() called");
+            _logger.Information("DeviceAttach() called");
             _devMode = DevMode.CONNECT;
             return true;
         }
 
         public bool DeviceDettach()
         {
-            _logger.LogInformation("DeviceDettach() called");
+            _logger.Information("DeviceDettach() called");
             _devMode = DevMode.DISCONNECT;
             return true;
         }
@@ -26,12 +27,12 @@ namespace Device
         {
             _logger = logger;
             _devMode = DevMode.DISCONNECT;
-            _logger.LogInformation("DeviceInit() called");
+            _logger.Information("DeviceInit() called");
         }
 
         public bool DeviceReset()
         {
-            _logger.LogInformation("DeviceReset() called");
+            _logger.Information("DeviceReset() called");
             return true;
         }
 
@@ -73,7 +74,16 @@ namespace Device
 
         public void SET_INT_OUT(string command, int value, ref bool result)
         {
-            throw new NotImplementedException();
+            switch (command)
+            {
+                case "TEST_COMMAND_OUT":
+                    _logger.Information("SET_INT_OUT() called with value {0}", value);
+                    result = true;
+                    break;
+                default:
+                    result = false;
+                    break;
+            }
         }
 
         public void SET_STRING_OUT(string command, string value, ref bool result)

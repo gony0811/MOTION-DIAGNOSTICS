@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MB_MSG_CONFIRM_START_ALIGN" xml:space="preserve">
+    <value>Do you start align process.</value>
+  </data>
+  <data name="MB_MSG_DEVICE_IS_NOT_RUNNING" xml:space="preserve">
+    <value>Device is not attached. please device attach and execute again.</value>
+  </data>
+  <data name="MB_MSG_LOADING_COMPLETED" xml:space="preserve">
+    <value>Did you complete wafer loading.</value>
+  </data>
+  <data name="MB_MSG_MOVE_TO_CENTER_POSITION" xml:space="preserve">
+    <value>Moving to wafer center position.</value>
+  </data>
+  <data name="MB_MSG_MOVE_TO_LEFT_EDGE_POSITION" xml:space="preserve">
+    <value>Moving wafer left edge position.</value>
+  </data>
+  <data name="MB_MSG_MOVE_TO_LOADING_POSITION" xml:space="preserve">
+    <value>Moving to wafer loading/unloading position.</value>
+  </data>
+  <data name="MB_MSG_MOVE_TO_RIGHT_EDGE_POSITION" xml:space="preserve">
+    <value>Moving wafer right edge position.</value>
+  </data>
+  <data name="MB_MSG_NEED_TO_GRAB_IMAGE" xml:space="preserve">
+    <value>Change to live state of vision camera.</value>
+  </data>
+  <data name="MB_MSG_POS_IS_NOT_CENTER" xml:space="preserve">
+    <value>Current position is not center.</value>
+  </data>
+  <data name="MB_MSG_POS_IS_NOT_LEFTEDGE" xml:space="preserve">
+    <value>Current position is not left edge.</value>
+  </data>
+  <data name="MB_MSG_POS_IS_NOT_RIGHTEDGE" xml:space="preserve">
+    <value>Current position is not right edge.</value>
+  </data>
+  <data name="MB_MSG_REPEATMEASURE" xml:space="preserve">
+    <value>Wafer repeat measure processing.</value>
+  </data>
+  <data name="MB_MSG_REPEATMEASURE_CANCELED" xml:space="preserve">
+    <value>Wafer repeat measure canceled.</value>
+  </data>
+  <data name="MB_MSG_REPEATMEASURE_FAILED" xml:space="preserve">
+    <value>Wafer repeat measure is failed.</value>
+  </data>
+  <data name="MB_MSG_REPEATMEASURE_SUCCESS" xml:space="preserve">
+    <value>Wafer repeat measure is success.</value>
+  </data>
+  <data name="MB_MSG_ROTATION_ANGLE" xml:space="preserve">
+    <value>Do you confirm rotate wafer stage as setting angle.</value>
+  </data>
+  <data name="MB_MSG_SAVE_CENTER_MARK" xml:space="preserve">
+    <value>Do you confirm current position as center?</value>
+  </data>
+  <data name="MB_MSG_SAVE_LEFTEDGE_MARK" xml:space="preserve">
+    <value>Do you confirm current position as left edge?</value>
+  </data>
+  <data name="MB_MSG_SAVE_RIGHTEDGE_MARK" xml:space="preserve">
+    <value>Do you confirm current position as right edge?</value>
+  </data>
+  <data name="MB_MSG_UNLOADING_COMPLETED" xml:space="preserve">
+    <value>Did you complete wafer unloading.</value>
+  </data>
+  <data name="MB_MSG_WAFER_ALIGN" xml:space="preserve">
+    <value>Now working on the wafer alignment process.</value>
+  </data>
+  <data name="MB_TITLE_CONFIRM" xml:space="preserve">
+    <value>CONFIRM</value>
+  </data>
+  <data name="MB_TITLE_LOADING_COMPLETED" xml:space="preserve">
+    <value>Wafer Loading Status Change</value>
+  </data>
+  <data name="MB_TITLE_PROCESSING" xml:space="preserve">
+    <value>PROCESSING</value>
+  </data>
+  <data name="MB_TITLE_REPEATMEASURE" xml:space="preserve">
+    <value>REPEAT MEASURE</value>
+  </data>
+  <data name="MB_MSG_MEASURE" xml:space="preserve">
+    <value>Do you want to start step measurement for selected area?</value>
+  </data>
+  <data name="MB_TITLE_WAFER_ALIGN" xml:space="preserve">
+    <value>Wafer align processing</value>
+  </data>
+  <data name="MB_TITLE_WARNING" xml:space="preserve">
+    <value>WARNING</value>
+  </data>
+  <data name="MSG_STANDBY_DEVICE_ATTACH" xml:space="preserve">
+    <value>Device disconnected.</value>
+  </data>
+  <data name="MSG_STANDBY_MEASURE_READY" xml:space="preserve">
+    <value>Wafer measure is ready.</value>
+  </data>
+  <data name="MSG_STANDBY_MOTION_INIT" xml:space="preserve">
+    <value>Motion is not ready.</value>
+  </data>
+  <data name="MSG_STANDBY_VISION_NOT_READY" xml:space="preserve">
+    <value>Vision Camera is not ready.</value>
+  </data>
+  <data name="MSG_STANDBY_WAFER_ALIGN_NOT_READY" xml:space="preserve">
+    <value>Wafer align is not completed</value>
+  </data>
+  <data name="MSG_STANDBY_WAFER_LOADING_NOT_COMPLETED" xml:space="preserve">
+    <value>Wafer load is not completed.</value>
+  </data>
+  <data name="MB_TITLE_MEASURE" xml:space="preserve">
+    <value>MEASURE</value>
+  </data>
+  <data name="MB_MSG_MEASURE_CANCELED" xml:space="preserve">
+    <value>Wafer step measure is canceled.</value>
+  </data>
+  <data name="MB_MSG_MEASURE_NOSELECTION" xml:space="preserve">
+    <value>Measure position is not selected.</value>
+  </data>
+</root>

@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MB_MSG_CONFIRM_START_ALIGN" xml:space="preserve">
+    <value>얼라인을 시작하시겠습니까?</value>
+  </data>
+  <data name="MB_MSG_DEVICE_IS_NOT_RUNNING" xml:space="preserve">
+    <value>장치가 연결되지 않았습니다. 장치 연결 후 다시 실행하세요.</value>
+  </data>
+  <data name="MB_MSG_LOADING_COMPLETED" xml:space="preserve">
+    <value>웨이퍼 로딩을 완료 하셨습니까?</value>
+  </data>
+  <data name="MB_MSG_MOVE_TO_CENTER_POSITION" xml:space="preserve">
+    <value>웨이퍼 중앙 위치로 이동 중입니다.</value>
+  </data>
+  <data name="MB_MSG_MOVE_TO_LEFT_EDGE_POSITION" xml:space="preserve">
+    <value>웨이퍼 왼쪽 가장자리로 이동 중입니다.</value>
+  </data>
+  <data name="MB_MSG_MOVE_TO_LOADING_POSITION" xml:space="preserve">
+    <value>웨이퍼 로딩/언로딩 위치로 이동 중입니다.</value>
+  </data>
+  <data name="MB_MSG_MOVE_TO_RIGHT_EDGE_POSITION" xml:space="preserve">
+    <value>웨이퍼 오른쪽 가장자리로 이동 중입니다.</value>
+  </data>
+  <data name="MB_MSG_NEED_TO_GRAB_IMAGE" xml:space="preserve">
+    <value>비전 카메라를 라이브 상태로 변경하십시요.</value>
+  </data>
+  <data name="MB_MSG_POS_IS_NOT_CENTER" xml:space="preserve">
+    <value>현재 위치가 중앙 위치가 아닙니다.</value>
+  </data>
+  <data name="MB_MSG_POS_IS_NOT_LEFTEDGE" xml:space="preserve">
+    <value>현재 위치가 왼쪽 가장자리가 아닙니다.</value>
+  </data>
+  <data name="MB_MSG_POS_IS_NOT_RIGHTEDGE" xml:space="preserve">
+    <value>현재 위치가 오른쪽 가장자리가 아닙니다.</value>
+  </data>
+  <data name="MB_MSG_REPEATMEASURE" xml:space="preserve">
+    <value>반복 측정을 진행 중입니다.</value>
+  </data>
+  <data name="MB_MSG_REPEATMEASURE_CANCELED" xml:space="preserve">
+    <value>웨이퍼 반복 측정이 취소되었습니다.</value>
+  </data>
+  <data name="MB_MSG_REPEATMEASURE_FAILED" xml:space="preserve">
+    <value>웨이퍼 반복 측정이 실패하였습니다.</value>
+  </data>
+  <data name="MB_MSG_REPEATMEASURE_SUCCESS" xml:space="preserve">
+    <value>웨이퍼 반복 측정이 완료되었습니다.</value>
+  </data>
+  <data name="MB_MSG_ROTATION_ANGLE" xml:space="preserve">
+    <value>웨이퍼를 설정한 각도만큼 회전 하시겠습니까?</value>
+  </data>
+  <data name="MB_MSG_SAVE_CENTER_MARK" xml:space="preserve">
+    <value>웨이퍼 중앙위치로 현재 위치를 저장 하시겠습니까?</value>
+  </data>
+  <data name="MB_MSG_SAVE_LEFTEDGE_MARK" xml:space="preserve">
+    <value>좌측 가장자리로 현재 위치를 저장 하시겠습니까?</value>
+  </data>
+  <data name="MB_MSG_SAVE_RIGHTEDGE_MARK" xml:space="preserve">
+    <value>우측 가장자리로 현재 위치를 저장 하시겠습니까?</value>
+  </data>
+  <data name="MB_MSG_UNLOADING_COMPLETED" xml:space="preserve">
+    <value>웨이퍼를 스테이지에서 언로딩 하셨습니까?</value>
+  </data>
+  <data name="MB_MSG_WAFER_ALIGN" xml:space="preserve">
+    <value>웨이퍼 얼라인을 진행 중입니다. 잠시만 기다려 주십시요.</value>
+  </data>
+  <data name="MB_TITLE_CONFIRM" xml:space="preserve">
+    <value>확인</value>
+  </data>
+  <data name="MB_TITLE_LOADING_COMPLETED" xml:space="preserve">
+    <value>웨이퍼 로딩 상태 변경</value>
+  </data>
+  <data name="MB_TITLE_PROCESSING" xml:space="preserve">
+    <value>진행 중</value>
+  </data>
+  <data name="MB_TITLE_REPEATMEASURE" xml:space="preserve">
+    <value>반복 측정</value>
+  </data>
+  <data name="MB_MSG_MEASURE" xml:space="preserve">
+    <value>선택 영역에 대한 스텝 측정을 시작하시겠습니까?</value>
+  </data>
+  <data name="MB_TITLE_WAFER_ALIGN" xml:space="preserve">
+    <value>웨이퍼 얼라인 진행 중</value>
+  </data>
+  <data name="MB_TITLE_WARNING" xml:space="preserve">
+    <value>경고</value>
+  </data>
+  <data name="MSG_STANDBY_DEVICE_ATTACH" xml:space="preserve">
+    <value>디바이스를 초기화 하십시요.</value>
+  </data>
+  <data name="MSG_STANDBY_MEASURE_READY" xml:space="preserve">
+    <value>웨이퍼 측정이 준비 되었습니다.</value>
+  </data>
+  <data name="MSG_STANDBY_MOTION_INIT" xml:space="preserve">
+    <value>모터를 초기화 하십시요.</value>
+  </data>
+  <data name="MSG_STANDBY_VISION_NOT_READY" xml:space="preserve">
+    <value>비전 카메라가 준비되지 않았습니다.</value>
+  </data>
+  <data name="MSG_STANDBY_WAFER_ALIGN_NOT_READY" xml:space="preserve">
+    <value>웨이퍼 얼라인을 완료하십시요.</value>
+  </data>
+  <data name="MSG_STANDBY_WAFER_LOADING_NOT_COMPLETED" xml:space="preserve">
+    <value>웨이퍼 로딩을 완료하십시요.</value>
+  </data>
+  <data name="MB_TITLE_MEASURE" xml:space="preserve">
+    <value>스텝 측정</value>
+  </data>
+  <data name="MB_MSG_MEASURE_CANCELED" xml:space="preserve">
+    <value>측정이 취소되었습니다.</value>
+  </data>
+  <data name="MB_MSG_MEASURE_NOSELECTION" xml:space="preserve">
+    <value>측정 위치가 선택되지 않았습니다.</value>
+  </data>
+</root>

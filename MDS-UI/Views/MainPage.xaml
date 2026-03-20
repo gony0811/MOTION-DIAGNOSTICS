@@ -1,0 +1,107 @@
+<UserControl x:Class="MDS.UI.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="clr-namespace:MDS.UI.ViewModels"
+      xmlns:uc="clr-namespace:MDS.UI.UserControls"
+      d:DesignHeight="1000"
+      d:DesignWidth="1800"
+      mc:Ignorable="d"
+      Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Unloaded">
+            <i:InvokeCommandAction Command="{Binding UnloadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="ControlMargin">10 10 0 0</Thickness>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+            <uc:StandbyProgressControl DataContext="{Binding StandbyProgressControlViewModel}" Margin="10"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Margin="5">
+            <GroupBox Header="Motion &#xCD08;&#xAE30;&#xD654;" Margin="{StaticResource ControlMargin}">
+                <uc:MotionControl Margin="5"
+                  MotionAxisChangedCommand="{Binding MotionAxisChangedCommand}"
+                  SelectedMotionAxis="{Binding SelectedMotionAxis}"
+                  IsPlusLimitChecked="{Binding IsPlusLimitChecked}"
+                  IsMinusLimitChecked="{Binding IsMinusLimitChecked}"
+                  IsEnableChecked="{Binding IsEnableChecked}"
+                  IsDisableChecked="{Binding IsDisableChecked}"
+                  IsInPositionChecked="{Binding IsInPositionChecked}"
+                  IsBusyChecked="{Binding IsBusyChecked}"
+                  ActualPosition="{Binding ActualPosition}"
+                  CommandPosition="{Binding CommandPosition}"
+                  IsErrorChecked="{Binding IsErrorChecked}"
+                  IsHommingChecked="{Binding IsHommingChecked}"
+                  IsCalibrationChecked="{Binding IsCalibrationChecked}"
+                  ServoErrorText="{Binding ServoErrorText}"
+                  ServoEnableCommand="{Binding ServoEnableCommand}"
+                  ServoDisableCommand="{Binding ServoDisableCommand}"
+                  ServoHomeCommand="{Binding ServoHomeCommand}"
+                  ServoStopCommand="{Binding ServoStopCommand}"
+                  JogMinusCommand="{Binding JogMinusCommand}"
+                  JogPlusCommand="{Binding JogPlusCommand}"
+                  IsInputVelocityChecked="{Binding IsInputVelocityChecked}"
+                  IsLowVelocityChecked="{Binding IsLowVelocityChecked}"
+                  IsMidVelocityChecked="{Binding IsMidVelocityChecked}"
+                  IsHighVelocityChecked="{Binding IsHighVelocityChecked}"
+                  MoveAbsPosition="{Binding MoveAbsPosition}"
+                  MoveRelDistance="{Binding MoveRelDistance}"
+                  MoveAbsCommand="{Binding MoveAbsCommand}"
+                  MoveRelCommand="{Binding MoveRelCommand}"
+                  InputVelocity="{Binding InputVelocity}"
+                  UserInputVelocityCommand="{Binding UserInputVelocityCommand}"
+                  LowVelocityValue="{Binding LowVelocity}"
+                  MidVelocityValue="{Binding MidVelocity}"
+                  HighVelocityValue="{Binding HighVelocity}"
+                  VelocityCheckedCommand="{Binding VelocityCheckedCommand}"
+                  EStopCommand="{Binding ServoEStopCommand}"
+                  LoadedCommand="{Binding MotionControl_LoadedCommand}"
+                  UnloadedCommand="{Binding MotionControl_UnloadedCommand}"
+                  ActualVelocity="{Binding ActualVelocity}"
+                  CommandVelocity="{Binding CommandVelocity}"
+                  />
+            </GroupBox>
+        </Grid>
+
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="WAFER LOADING" Margin="{StaticResource ControlMargin}">
+            <uc:WaferLoadingControl DataContext="{Binding WaferLoadingControlViewModel}" Margin="5" Loaded="WaferLoadingControl_Loaded"/>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Grid.RowSpan="2" Grid.Column="2"  Header="Live View" Margin="{StaticResource ControlMargin}">
+            <Grid x:Name="VisionGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Grid.Row="2" Grid.RowSpan="1" Grid.Column="1"  Header="Wafer Align" Margin="{StaticResource ControlMargin}">
+            <uc:WaferAlignControl DataContext="{Binding WaferAlignControlViewModel}"></uc:WaferAlignControl>
+        </GroupBox>
+    </Grid>
+</UserControl>

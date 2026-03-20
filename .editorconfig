@@ -1,0 +1,6 @@
+﻿[*.cs]
+
+# CS8602: null 가능 참조에 대한 역참조입니다.
+dotnet_diagnostic.CS8602.severity = suggestion
+# Nullable 참조 형식 비활성화
+dotnet_enable_nullable = false

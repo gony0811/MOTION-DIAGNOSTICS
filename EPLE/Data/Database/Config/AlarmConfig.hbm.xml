@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly = "EPLE" namespace = "EPLE.Data.Entity">
+  <!--.cs 위치-->
+
+  <class
+      name="AlarmConfigEntity"
+      table="AlarmConfig"
+      dynamic-update="true"
+      dynamic-insert="true"
+    >
+    <id
+        name="Id"
+        column="Id"
+        type="int"
+        unsaved-value="null"
+        >
+      <generator class="identity">
+        <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Nio.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              -->
+      </generator>
+    </id>
+
+
+    <property
+        name="Name"
+        type="System.String"
+        update="true"
+        insert="true"
+        length="255"
+        >
+      <column
+        name="Name"
+        length="64"
+        index="ALARM_NAME"
+        not-null="true"
+            />
+    </property>
+
+    <property
+        name="LevelString"
+        type="System.String"
+        update="true"
+        insert="true"
+        column="Level"
+        length="64"
+        />
+
+    <property
+        name="Text"
+        type="System.String"
+        update="true"
+        insert="true"
+        column="Text"
+        length="255"
+        />
+
+    <property
+        name="StatusString"
+        type="System.String"
+        update="true"
+        insert="true"
+        column="Status"
+        length="64"
+        />
+
+    <property
+        name="EnableString"
+        type="System.String"
+        update="true"
+        insert="true"
+        column="Enable"
+        length="64"
+        />
+
+    <property
+        name="Description"
+        type="System.String"
+        update="true"
+        insert="true"
+        column="Description"
+        length="255"
+        />
+
+    <property
+        name="SetTime"
+        type="System.String"
+        update="true"
+        insert="true"
+        column="SetTime"
+        length="255"
+        />
+
+    <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Secs.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+  </class>
+
+</hibernate-mapping>

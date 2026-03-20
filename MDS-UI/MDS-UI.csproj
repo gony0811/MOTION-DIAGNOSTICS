@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MDS.UI</RootNamespace>
+    <AssemblyName>MDS-UI</AssemblyName>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- MVVM / DI -->
+    <PackageReference Include="Prism.Core" Version="9.0.537" />
+    <PackageReference Include="Prism.Wpf" Version="9.0.537" />
+    <PackageReference Include="Prism.Events" Version="9.0.537" />
+    <PackageReference Include="Autofac" Version="8.2.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.1" />
+
+    <!-- Fody -->
+    <PackageReference Include="Fody" Version="6.9.1" PrivateAssets="all" />
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="all" />
+    <!-- PrismCommands.Fody generates invalid IL on .NET 8 - using manual DelegateCommand instead -->
+    <!-- <PackageReference Include="PrismCommands.Fody" Version="2.0.8" PrivateAssets="all" /> -->
+
+    <!-- Behaviors -->
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+
+    <!-- Logging -->
+    <PackageReference Include="Serilog" Version="4.2.0" />
+
+    <!-- Telerik (NuGet feed) -->
+    <PackageReference Include="Telerik.UI.for.Wpf.80.Xaml" Version="2026.1.211" />
+
+    <!-- System.Drawing for .NET 8 -->
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+  </ItemGroup>
+
+  <!-- SciChart: .NET Framework DLLs are NOT compatible with .NET 8 -->
+  <!-- TODO: Replace with SciChart .NET 8 NuGet package when available -->
+  <!--
+  <ItemGroup>
+    <Reference Include="SciChart.Charting">
+      <HintPath>..\lib\RCWPF\2025.4.1111.462\SciChart.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="SciChart.Core">
+      <HintPath>..\lib\RCWPF\2025.4.1111.462\SciChart.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SciChart.Data">
+      <HintPath>..\lib\RCWPF\2025.4.1111.462\SciChart.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SciChart.Drawing">
+      <HintPath>..\lib\RCWPF\2025.4.1111.462\SciChart.Drawing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  -->
+
+  <ItemGroup>
+    <Resource Include="Resources\cam_default.png" />
+  </ItemGroup>
+</Project>

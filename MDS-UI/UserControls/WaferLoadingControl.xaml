@@ -1,0 +1,304 @@
+<UserControl x:Class="MDS.UI.UserControls.WaferLoadingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:valid="clr-namespace:MDS.UI.UserControls.Validations"
+             xmlns:local="clr-namespace:MDS.UI.UserControls"
+             xmlns:conv="clr-namespace:MDS.UI.Converters"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <valid:WaferGridSetDataErrorInfo x:Key="WaferGridSetData"/>
+            <Thickness x:Key="ControlMargin">5 5 0 0</Thickness>
+            <conv:DoubleToStringConverter x:Key="DoubleToStringConverter"></conv:DoubleToStringConverter>
+            <conv:IntegerToStringConverter x:Key="IntegerToStringConverter"></conv:IntegerToStringConverter>
+            <conv:StringToValueConverter x:Key="StringToValueConverter"></conv:StringToValueConverter>
+            <conv:MultiBindingConverter x:Key="MultiBindingConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Unloaded">
+            <i:InvokeCommandAction Command="{Binding UnloadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Content="Wafer Loading Position" Margin="{StaticResource ControlMargin}"/>
+        <!--Axis Label : X-->
+        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Content="X [&#x339E;]" Margin="{StaticResource ControlMargin}"/>
+
+        <!--Axis Label : Y-->
+        <Label Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Content="Y [&#x339E;]" Margin="{StaticResource ControlMargin}"/>
+
+        <!-- X Input Textbox-->
+        <telerik:RadNumericUpDown x:Name="LoadingPositionX_TextBox" Grid.Row="2" Grid.Column="1" Value="{Binding LoadingPositionX, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" MinWidth="100" Margin="{StaticResource ControlMargin}" ValueFormat="Numeric" NumberDecimalDigits="3"  ShowButtons="False" SmallChange="0.001">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=LoadingPositionX_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </telerik:RadNumericUpDown>
+
+        <!-- Y Input Textbox-->
+        <telerik:RadNumericUpDown x:Name="LoadingPositionY_TextBox" Grid.Row="2" Grid.Column="4" Value="{Binding LoadingPositionY, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" MinWidth="70" Margin="{StaticResource ControlMargin}" ValueFormat="Numeric" NumberDecimalDigits="3"  ShowButtons="False" SmallChange="0.001">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=LoadingPositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </telerik:RadNumericUpDown>
+
+
+        <Button Grid.Row="2" Grid.Column="5" Content="SET" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding LoadingPositionDataSetCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=LoadingPositionX_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=LoadingPositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <Button Grid.Row="2" Grid.Column="6" Content="Move" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveToLoadingPositionCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=LoadingPositionX_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=LoadingPositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <!--Header-->
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Content="Wafer Center Position" Margin="{StaticResource ControlMargin}"/>
+
+        <!--Axis Label : X-->
+        <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Content="X [&#x339E;]" Margin="{StaticResource ControlMargin}"/>
+
+        <!--Axis Label : Y-->
+        <Label Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" Content="Y [&#x339E;]" Margin="{StaticResource ControlMargin}"/>
+
+        <!-- X Input Textbox-->
+        <telerik:RadNumericUpDown x:Name="CenterPositionX_TextBox" Grid.Row="4" Grid.Column="1" Value="{Binding CenterPositionX, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" MinWidth="100" Margin="{StaticResource ControlMargin}" ValueFormat="Numeric" NumberDecimalDigits="3"  ShowButtons="False" SmallChange="0.001">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=CenterPositionX_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </telerik:RadNumericUpDown>
+
+        <!-- Y Input Textbox-->
+        <telerik:RadNumericUpDown x:Name="CenterPositionY_TextBox" Grid.Row="4" Grid.Column="4" Value ="{Binding CenterPositionY, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" MinWidth="100" Margin="{StaticResource ControlMargin}" ValueFormat="Numeric" NumberDecimalDigits="3"  ShowButtons="False" SmallChange="0.001">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=CenterPositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </telerik:RadNumericUpDown>
+
+        <Button Grid.Row="4" Grid.Column="5" Content="SET" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding CenterPositionDataSetCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=CenterPositionX_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=CenterPositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Grid.Row="4" Grid.Column="6" Content="Move" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveToCenterPositionCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=CenterPositionX_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=CenterPositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <!--Header-->
+        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Content="Wafer Left Edge Position" Margin="{StaticResource ControlMargin}"/>
+
+        <!--Axis Label : X-->
+        <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" Content="X [&#x339E;]" Margin="{StaticResource ControlMargin}"/>
+
+        <!--Axis Label : Y-->
+        <Label Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Content="Y [&#x339E;]" Margin="{StaticResource ControlMargin}"/>
+
+        <!-- X Input Textbox-->
+        <telerik:RadNumericUpDown x:Name="LeftEdgePositionX_TextBox" Grid.Row="6" Grid.Column="1" Value="{Binding LeftEdgePositionX, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" MinWidth="100" Margin="{StaticResource ControlMargin}" ValueFormat="Numeric" NumberDecimalDigits="3"  ShowButtons="False" SmallChange="0.001">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=LeftEdgePositionX_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </telerik:RadNumericUpDown>
+
+        <!-- Y Input Textbox-->
+        <telerik:RadNumericUpDown x:Name="LeftEdgePositionY_TextBox" Grid.Row="6" Grid.Column="4" Value ="{Binding LeftEdgePositionY, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" MinWidth="100" Margin="{StaticResource ControlMargin}" ValueFormat="Numeric" NumberDecimalDigits="3"  ShowButtons="False" SmallChange="0.001">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=LeftEdgePositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </telerik:RadNumericUpDown>
+
+        <Button Grid.Row="6" Grid.Column="5" Content="SET" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding LeftEdgePositionDataSetCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=LeftEdgePositionX_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=LeftEdgePositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Grid.Row="6" Grid.Column="6" Content="Move" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveToLeftEdgePositionCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=LeftEdgePositionX_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=LeftEdgePositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <!--Header-->
+        <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Content="Wafer Right Edge Position" Margin="{StaticResource ControlMargin}"/>
+
+        <!--Axis Label : X-->
+        <Label Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" Content="X [&#x339E;]" Margin="{StaticResource ControlMargin}"/>
+
+        <!--Axis Label : Y-->
+        <Label Grid.Row="8" Grid.Column="3" HorizontalAlignment="Center" Content="Y [&#x339E;]" Margin="{StaticResource ControlMargin}"/>
+
+        <!-- X Input Textbox-->
+        <telerik:RadNumericUpDown x:Name="RightEdgePositionX_TextBox" Grid.Row="8" Grid.Column="1" Value="{Binding RightEdgePositionX, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" MinWidth="100" Margin="{StaticResource ControlMargin}" ValueFormat="Numeric" NumberDecimalDigits="3"  ShowButtons="False" SmallChange="0.001">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=RightEdgePositionX_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </telerik:RadNumericUpDown>
+
+        <!-- Y Input Textbox-->
+        <telerik:RadNumericUpDown x:Name="RightEdgePositionY_TextBox" Grid.Row="8" Grid.Column="4" Value="{Binding RightEdgePositionY, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput" MinWidth="100" Margin="{StaticResource ControlMargin}" ValueFormat="Numeric" NumberDecimalDigits="3"  ShowButtons="False" SmallChange="0.001">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=RightEdgePositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </telerik:RadNumericUpDown>
+
+        <Button Grid.Row="8" Grid.Column="5" Content="SET" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding RightEdgePositionDataSetCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=RightEdgePositionX_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=RightEdgePositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <Button Grid.Row="8" Grid.Column="6" Content="Move" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding MoveToRightEdgePositionCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=RightEdgePositionX_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=RightEdgePositionY_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <!--Header-->
+        <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Content="Wafer Grid Setting" Margin="{StaticResource ControlMargin}"/>
+
+
+        <!--Row Count Label-->
+        <Label Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center" Content="Row" Margin="{StaticResource ControlMargin}"/>
+
+        <!-- Grid Row Input Textbox-->
+        <TextBox x:Name="WaferGridRowCount_TextBox" Grid.Row="10" Grid.Column="1" Text="{Binding Path=WaferGridRowCount, ValidatesOnDataErrors=True, Converter={StaticResource IntegerToStringConverter}}" PreviewTextInput="TextBox_PreviewTextInput" TextAlignment="Center" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=WaferGridRowCount_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TextBox>
+
+        <!--Column Count Label-->
+        <Label Grid.Row="10" Grid.Column="3" HorizontalAlignment="Center" Content="Column" Margin="{StaticResource ControlMargin}"/>
+
+        <!-- Grid Column Input Textbox-->
+        <TextBox x:Name="WaferGridColumnCount_TextBox" Grid.Row="10" Grid.Column="4" Text="{Binding Path=WaferGridColumnCount, ValidatesOnDataErrors=True, Converter={StaticResource IntegerToStringConverter}}" PreviewTextInput="TextBox_PreviewTextInput" TextAlignment="Center" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=WaferGridColumnCount_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TextBox>
+        <!--Pitch Label-->
+        <Label Grid.Row="11" Grid.Column="0" HorizontalAlignment="Center" Content="Pitch" Margin="{StaticResource ControlMargin}"/>
+        <!-- Grid Pitch Input Textbox-->
+        <TextBox x:Name="WaferGridPitch_TextBox" Grid.Row="11" Grid.Column="1" Text="{Binding Path=WaferGridPitch, ValidatesOnDataErrors=True, Converter={StaticResource IntegerToStringConverter}}" PreviewTextInput="TextBox_PreviewTextInput" TextAlignment="Center" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Validation.Error">
+                    <i:ChangePropertyAction PropertyName="IsEnable" Value="False" TargetObject="{Binding ElementName=Button_WaferGridDataSet}"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="TextChanged">
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Red" TargetObject="{Binding ElementName=WaferGridPitch_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TextBox>
+
+        <Button Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Content="{Binding ButtonContent_LoadingStatus}" MinWidth="100" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding LoadingCompletedCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <Button x:Name="Button_WaferGridDataSet" Grid.Row="10" Grid.Column="5" Content="Set" MinWidth="70" Margin="{StaticResource ControlMargin}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding WaferGridDataSetCommand}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=WaferGridRowCount_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=WaferGridColumnCount_TextBox}"/>
+                    <i:ChangePropertyAction PropertyName="Foreground" Value="Black" TargetObject="{Binding ElementName=WaferGridPitch_TextBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+    </Grid>
+</UserControl>

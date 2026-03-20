@@ -1,0 +1,115 @@
+<Window x:Class="MotionDiagnostics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:local="clr-namespace:MotionDiagnostics"
+        xmlns:views="clr-namespace:MotionDiagnostics.Views"
+        xmlns:viewModels="clr-namespace:MotionDiagnostics.ViewModels"
+        mc:Ignorable="d"
+        Title="MOTION DIAGNOSTICS"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        MinWidth="1400" MinHeight="800"
+        Width="1600" Height="900"
+        Background="#151B24">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- TOP BAR -->
+        <Border Grid.Row="0" Background="#1A2230" Padding="12,8">
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="&#xE80F;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White" VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <TextBlock Text="MOTION DIAGNOSTICS" FontSize="18" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <telerik:RadButton Content="{Binding DeviceStatus}" Command="{Binding DeviceConnectCommand}"
+                                       Foreground="White" Background="#27AE60" BorderBrush="#219A52"
+                                       Padding="12,6" Margin="4,0"/>
+                </StackPanel>
+                <Border/> <!-- spacer -->
+            </DockPanel>
+        </Border>
+
+        <!-- MAIN CONTENT -->
+        <Grid Grid.Row="1" Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- CENTER: Tab Control -->
+            <telerik:RadTabControl Grid.Column="1"
+                                   SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}"
+                                   Background="Transparent"
+                                   BorderThickness="0"
+                                   Margin="6,0,0,0">
+                <!-- Overview Tab (formerly MainPage) -->
+                <telerik:RadTabItem>
+                    <telerik:RadTabItem.Header>
+                        <TextBlock Text="&#xE80F; Overview" FontFamily="Segoe MDL2 Assets" Foreground="White"/>
+                    </telerik:RadTabItem.Header>
+                    <views:MainPage/>
+                </telerik:RadTabItem>
+
+                <!-- Accuracy Tab -->
+                <telerik:RadTabItem>
+                    <telerik:RadTabItem.Header>
+                        <TextBlock Text="Accuracy" Foreground="White"/>
+                    </telerik:RadTabItem.Header>
+                    <views:AccuracyPage/>
+                </telerik:RadTabItem>
+
+                <!-- 2D Flatness Tab -->
+                <telerik:RadTabItem>
+                    <telerik:RadTabItem.Header>
+                        <TextBlock Text="2D Flatness" Foreground="White"/>
+                    </telerik:RadTabItem.Header>
+                    <views:FlatnessPage/>
+                </telerik:RadTabItem>
+
+                <!-- Settling Time Tab -->
+                <telerik:RadTabItem>
+                    <telerik:RadTabItem.Header>
+                        <TextBlock Text="Settling Time" Foreground="White"/>
+                    </telerik:RadTabItem.Header>
+                    <views:SettlingTimePage/>
+                </telerik:RadTabItem>
+
+                <!-- In Position Stability Tab -->
+                <telerik:RadTabItem>
+                    <telerik:RadTabItem.Header>
+                        <TextBlock Text="In Position Stability" Foreground="White"/>
+                    </telerik:RadTabItem.Header>
+                    <views:JitterPage/>
+                </telerik:RadTabItem>
+
+                <!-- Settings Tab -->
+                <telerik:RadTabItem>
+                    <telerik:RadTabItem.Header>
+                        <TextBlock Text="&#xE713; Settings" FontFamily="Segoe MDL2 Assets" Foreground="White"/>
+                    </telerik:RadTabItem.Header>
+                    <views:SettingsPage/>
+                </telerik:RadTabItem>
+            </telerik:RadTabControl>
+        </Grid>
+
+        <!-- STATUS BAR -->
+        <Border Grid.Row="2" Background="#1A2230" Padding="12,6">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                    <Ellipse Width="10" Height="10" Fill="#2ECC71" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding DeviceStatus}" Foreground="#9FB3C8" VerticalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock DockPanel.Dock="Right" Text="System Initialized" Foreground="#9FB3C8" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>

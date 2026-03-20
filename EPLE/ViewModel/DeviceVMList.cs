@@ -1,5 +1,5 @@
 ﻿using EPLE.Data.Entity;
-using EPLE.Data.Interface;
+using EPLE.Interface;
 using System.Collections.ObjectModel;
 
 namespace EPLE.ViewModel
@@ -19,7 +19,7 @@ namespace EPLE.ViewModel
             public string DeviceType { get => deviceConfigEntity.DeviceType; set => deviceConfigEntity.DeviceType = value; }
             public string InstanceName { get => deviceConfigEntity.InstanceName; set => deviceConfigEntity.InstanceName = value; }
             public string FileName { get => deviceConfigEntity.FileName; set => deviceConfigEntity.FileName = value; }
-            public bool Use { get => deviceConfigEntity.Use; set => deviceConfigEntity.Use = value; }
+            public bool Use { get => deviceConfigEntity.IsUse; set => deviceConfigEntity.IsUse = value; }
             public string Args { get => deviceConfigEntity.Args; set => deviceConfigEntity.Args = value; }
             public string Description { get => deviceConfigEntity.Description ?? ""; set => deviceConfigEntity.Description = value; }
 
@@ -28,6 +28,6 @@ namespace EPLE.ViewModel
             public void SaveChanges() => saveChanges.SaveChanges();
         }
 
-        public ObservableCollection<DeviceVM> Devices { get; } = new();
+        public ObservableCollection<DeviceVM> Devices { get; } = new ObservableCollection<DeviceVM>();
     }
 }
